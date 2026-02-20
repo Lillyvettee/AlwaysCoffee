@@ -1,3 +1,71 @@
-@import './fonts.css';
-@import './tailwind.css';
-@import './theme.css';
+@import "tailwindcss";
+
+:root {
+  --cream: #f5f0e8;
+  --charcoal: #1a1510;
+  --ember: #c84b11;
+  --gold: #d4a853;
+  --ash: #8c8070;
+  --smoke: #e8e0d0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--smoke); }
+::-webkit-scrollbar-thumb { background: var(--ash); border-radius: 3px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ember);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.ember-glow {
+  text-shadow: 0 0 40px rgba(200, 75, 17, 0.3);
+}
