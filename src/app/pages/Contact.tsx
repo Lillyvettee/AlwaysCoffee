@@ -1,116 +1,128 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { useState } from "react";
+import { MapPin, Phone, Clock, Mail, Navigation } from "lucide-react";
 
 export function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const INFO = [
-    { icon: MapPin, label: "Address", lines: ["412 Coalfire Lane", "Brooklyn, NY 11201"] },
-    { icon: Phone, label: "Reservations", lines: ["(718) 555-0192"] },
-    { icon: Mail, label: "Email", lines: ["hello@emberandash.com"] },
-    { icon: Clock, label: "Hours", lines: ["Wed – Thu: 5pm – 10pm", "Fri – Sat: 5pm – 11pm", "Sun: 4pm – 9pm", "Mon & Tue: Closed"] },
+  const hours = [
+    { day: "Monday - Thursday", time: "8:00 AM - 3:00 PM" },
+    { day: "Friday", time: "8:00 AM - 2:00 PM" },
+    { day: "Saturday", time: "9:00 AM - 3:00 PM" },
+    { day: "Sunday", time: "Closed" },
   ];
 
   return (
-    <div style={{ paddingTop: 72, minHeight: "100vh" }}>
-      {/* Header */}
-      <div style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(212,163,84,0.12)", padding: "5rem 2rem 4rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p className="section-label fade-up">Get in Touch</p>
-          <h1 className="section-title fade-up delay-1">Contact</h1>
+    <div className="py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl mb-4 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>Visit Us</h1>
+          <p className="text-xl text-[#8b4545]">
+            We'd love to see you at Always Coffee House!
+          </p>
         </div>
-      </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "5rem 2rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem" }}>
-        {/* Info */}
-        <div>
-          <h2 style={{ fontFamily: "var(--display)", fontSize: "1.8rem", color: "var(--fg)", marginBottom: "2.5rem" }}>Come find us.</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginBottom: "3rem" }}>
-            {INFO.map(({ icon: Icon, label, lines }) => (
-              <div key={label} style={{ display: "flex", gap: "1rem" }}>
-                <div style={{ marginTop: 2, width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(192,57,43,0.12)", flexShrink: 0 }}>
-                  <Icon size={15} style={{ color: "var(--gold)" }} />
-                </div>
-                <div>
-                  <p style={{ fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.4rem" }}>{label}</p>
-                  {lines.map((line) => (
-                    <p key={line} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.87rem", lineHeight: 1.7 }}>{line}</p>
-                  ))}
-                </div>
+        {/* Contact Info Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Location Card */}
+          <div className="bg-white rounded-lg shadow-md border-2 border-[#f5d7d7] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 bg-[#f5d7d7] rounded-full">
+                <MapPin className="text-[#c84a4a]" size={28} />
+              </div>
+              <h2 className="text-3xl text-[#c84a4a]">Location</h2>
+            </div>
+            <p className="text-xl text-[#8b4545] mb-6">
+              647 Cupples Rd<br />
+              San Antonio, TX 78237
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=647+Cupples+Rd+San+Antonio+TX+78237"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#c84a4a] text-white px-6 py-3 rounded-full hover:bg-[#a83d3d] transition-colors"
+            >
+              <Navigation size={20} />
+              Get Directions
+            </a>
+          </div>
+
+          {/* Contact Card */}
+          <div className="bg-white rounded-lg shadow-md border-2 border-[#f5d7d7] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 bg-[#f5d7d7] rounded-full">
+                <Phone className="text-[#c84a4a]" size={28} />
+              </div>
+              <h2 className="text-3xl text-[#c84a4a]">Contact</h2>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-[#a87676] mb-1">Phone</p>
+                <a
+                  href="tel:21099951221"
+                  className="text-xl text-[#8b4545] hover:text-[#c84a4a] transition-colors"
+                >
+                  (210) 999-51221
+                </a>
+              </div>
+              <div>
+                <p className="text-sm text-[#a87676] mb-1">Email</p>
+                <a
+                  href="mailto:hello@alwayscoffee.com"
+                  className="text-xl text-[#8b4545] hover:text-[#c84a4a] transition-colors"
+                >
+                  hello@alwayscoffee.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hours Section */}
+        <div className="bg-[#f5d7d7] rounded-lg p-12 mb-16">
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="p-3 bg-white rounded-full">
+              <Clock className="text-[#c84a4a]" size={32} />
+            </div>
+            <h2 className="text-4xl text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>Hours of Operation</h2>
+          </div>
+          <div className="max-w-2xl mx-auto space-y-4">
+            {hours.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-lg p-6 flex justify-between items-center"
+              >
+                <span className="text-xl text-[#8b4545]">{item.day}</span>
+                <span className="text-xl text-[#c84a4a]">{item.time}</span>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Map placeholder */}
-          <div style={{ height: 200, background: "rgba(255,255,255,0.025)", border: "1px solid rgba(212,163,84,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ textAlign: "center" }}>
-              <MapPin size={28} style={{ color: "rgba(212,163,84,0.4)", margin: "0 auto 8px" }} />
-              <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.8rem" }}>412 Coalfire Lane, Brooklyn NY</p>
+        {/* Map Placeholder */}
+        <div className="bg-white rounded-lg shadow-md border-2 border-[#f5d7d7] overflow-hidden">
+          <div className="aspect-[16/9] bg-[#f5d7d7] flex items-center justify-center">
+            <div className="text-center p-8">
+              <MapPin className="text-[#c84a4a] mx-auto mb-4" size={48} />
+              <p className="text-xl text-[#8b4545] mb-4">
+                Find us at 647 Cupples Rd, San Antonio
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=647+Cupples+Rd+San+Antonio+TX+78237"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[#c84a4a] hover:text-[#a83d3d] transition-colors underline"
+              >
+                Open in Google Maps
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Form */}
-        <div>
-          {submitted ? (
-            <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem", border: "1px solid rgba(212,163,84,0.15)" }}>
-              <div>
-                <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(212,163,84,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", margin: "0 auto 1.5rem" }}>
-                  🔥
-                </div>
-                <h3 style={{ fontFamily: "var(--display)", fontSize: "1.6rem", color: "var(--fg)", marginBottom: "0.75rem" }}>Message sent.</h3>
-                <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.87rem" }}>We'll be in touch within 24 hours.</p>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <h2 style={{ fontFamily: "var(--display)", fontSize: "1.8rem", color: "var(--fg)", marginBottom: "2.5rem" }}>Send a message.</h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                {[
-                  { id: "name", label: "Your Name", type: "text", placeholder: "Jane Smith" },
-                  { id: "email", label: "Email Address", type: "email", placeholder: "jane@example.com" },
-                  { id: "subject", label: "Subject", type: "text", placeholder: "Private dining enquiry…" },
-                ].map(({ id, label, type, placeholder }) => (
-                  <div key={id}>
-                    <label htmlFor={id} className="ea-label">{label}</label>
-                    <input
-                      id={id} type={type} placeholder={placeholder}
-                      value={(form as any)[id]}
-                      onChange={(e) => setForm({ ...form, [id]: e.target.value })}
-                      className="ea-input" required
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label htmlFor="message" className="ea-label">Message</label>
-                  <textarea
-                    id="message" rows={5} placeholder="Tell us how we can help…"
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="ea-input" required
-                    style={{ resize: "none" }}
-                  />
-                </div>
-                <button type="submit" className="btn-gold" style={{ width: "100%", padding: "1rem" }}>
-                  Send Message
-                </button>
-              </div>
-            </form>
-          )}
+        {/* Additional Info */}
+        <div className="mt-12 text-center">
+          <p className="text-[#8b4545] text-lg">
+            Have questions? Give us a call or stop by—we're always happy to chat!
+          </p>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-        }
-      `}</style>
     </div>
   );
 }

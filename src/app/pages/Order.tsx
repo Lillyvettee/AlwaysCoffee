@@ -1,177 +1,125 @@
-import { useState } from "react";
-import { Calendar, Users, Clock, ChevronDown } from "lucide-react";
-
-const TIMES = ["5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM","8:30 PM","9:00 PM","9:30 PM"];
-const PARTY_SIZES = [1, 2, 3, 4, 5, 6, 7, 8];
+import { Coffee, ShoppingCart } from "lucide-react";
+import { motion } from "motion/react";
 
 export function Order() {
-  const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [confirmed, setConfirmed] = useState(false);
-  const [reservation, setReservation] = useState({ date: "", time: "", guests: 2, name: "", email: "", phone: "", notes: "" });
-
-  const update = (k: string, v: string | number) => setReservation((r) => ({ ...r, [k]: v }));
-
-  const STEPS = [{ n: 1, label: "Date & Time" }, { n: 2, label: "Guest Info" }, { n: 3, label: "Confirm" }];
+  const categories = [
+    {
+      name: "Hot Drinks",
+      items: [
+        { name: "Classic Latte", price: "$4.50", description: "Smooth espresso with steamed milk" },
+        { name: "Cappuccino", price: "$4.50", description: "Bold espresso with frothy milk" },
+        { name: "Caramel Macchiato", price: "$5.00", description: "Sweet caramel with vanilla and espresso" },
+        { name: "Mocha", price: "$5.00", description: "Rich chocolate and espresso" },
+        { name: "Americano", price: "$3.50", description: "Classic espresso and hot water" },
+      ]
+    },
+    {
+      name: "Iced Drinks",
+      items: [
+        { name: "Iced Latte", price: "$4.75", description: "Chilled espresso and cold milk over ice" },
+        { name: "Iced Vanilla Latte", price: "$5.25", description: "Sweet vanilla with iced espresso" },
+        { name: "Cold Brew", price: "$4.50", description: "Smooth, slow-steeped coffee" },
+        { name: "Iced Caramel Macchiato", price: "$5.25", description: "Iced perfection with caramel drizzle" },
+      ]
+    },
+    {
+      name: "Specialty Drinks",
+      items: [
+        { name: "Blessing Brew", price: "$5.50", description: "Our signature faith-inspired blend with honey and cinnamon" },
+        { name: "Grace Latte", price: "$5.75", description: "Lavender vanilla latte topped with whipped cream" },
+        { name: "Psalm 23 Pour", price: "$5.50", description: "Calming chamomile tea latte with local honey" },
+      ]
+    },
+    {
+      name: "Baked Goods",
+      items: [
+        { name: "Cinnamon Roll", price: "$3.50", description: "Fresh-baked and topped with cream cheese frosting" },
+        { name: "Blueberry Muffin", price: "$3.00", description: "Made with local blueberries" },
+        { name: "Chocolate Croissant", price: "$3.75", description: "Buttery pastry with rich chocolate" },
+      ]
+    }
+  ];
 
   return (
-    <div style={{ paddingTop: 72, minHeight: "100vh" }}>
-      {/* Header */}
-      <div style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(212,163,84,0.12)", padding: "5rem 2rem 4rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p className="section-label fade-up">Secure Your Seat</p>
-          <h1 className="section-title fade-up delay-1">Reserve a Table</h1>
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 640, margin: "0 auto", padding: "4rem 2rem 6rem" }}>
-        {/* Step indicator */}
-        {!confirmed && (
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3.5rem" }}>
-            {STEPS.map(({ n, label }, i) => (
-              <div key={n} style={{ display: "flex", alignItems: "center", gap: "1rem", flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <div style={{
-                    width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "0.8rem", fontWeight: 600, transition: "all 0.3s",
-                    background: step >= n ? "var(--gold)" : "rgba(255,255,255,0.07)",
-                    color: step >= n ? "#0c0a08" : "rgba(255,255,255,0.35)",
-                  }}>{n}</div>
-                  <span style={{ fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: step >= n ? "var(--gold)" : "rgba(255,255,255,0.3)" }} className="hidden-mobile">
-                    {label}
-                  </span>
-                </div>
-                {i < 2 && <div style={{ flex: 1, height: 1, background: step > n ? "var(--gold)" : "rgba(255,255,255,0.1)" }} />}
-              </div>
-            ))}
+    <div className="py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex justify-center mb-4">
+            <Coffee className="text-[#c84a4a]" size={60} />
           </div>
-        )}
+          <h1 className="text-5xl mb-4 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>
+            Order Now
+          </h1>
+          <p className="text-xl text-[#8b4545] max-w-2xl mx-auto mb-6">
+            Call ahead or visit us in person to place your order
+          </p>
+          <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
+            <a
+              href="tel:210-999-51221"
+              className="inline-block bg-[#c84a4a] text-white px-8 py-4 rounded-full hover:bg-[#a83d3d] transition-all hover:scale-105 shadow-lg"
+            >
+              📞 Call to Order: 210-999-51221
+            </a>
+            <p className="text-[#8b4545]">or visit us at 647 Cupples Rd, San Antonio, TX</p>
+          </div>
+        </motion.div>
 
-        {/* Step 1 */}
-        {step === 1 && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "1.8rem", color: "var(--fg)", marginBottom: "0.5rem" }}>When would you like to dine?</h2>
-            <div>
-              <label className="ea-label">Date</label>
-              <div style={{ position: "relative" }}>
-                <Calendar size={15} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", color: "rgba(255,255,255,0.3)", pointerEvents: "none" }} />
-                <input type="date" value={reservation.date} min={new Date().toISOString().split("T")[0]}
-                  onChange={(e) => update("date", e.target.value)}
-                  className="ea-input" style={{ paddingLeft: "2.5rem" }} />
-              </div>
-            </div>
-            <div>
-              <label className="ea-label">Time</label>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0.4rem" }}>
-                {TIMES.map((t) => (
-                  <button key={t} onClick={() => update("time", t)} style={{
-                    padding: "0.6rem 0", fontSize: "0.72rem", fontFamily: "var(--body)", letterSpacing: "0.04em",
-                    cursor: "pointer", border: "1px solid", transition: "all 0.15s",
-                    background: reservation.time === t ? "var(--gold)" : "rgba(255,255,255,0.04)",
-                    color: reservation.time === t ? "#0c0a08" : "rgba(255,255,255,0.5)",
-                    borderColor: reservation.time === t ? "var(--gold)" : "rgba(212,163,84,0.15)",
-                  }}>{t}</button>
+        {/* Order Categories */}
+        <div className="space-y-12">
+          {categories.map((category, idx) => (
+            <motion.section
+              key={category.name}
+              className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border-2 border-[#f5d7d7] shadow-lg"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+            >
+              <h2 className="text-3xl mb-6 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>
+                {category.name}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.items.map((item) => (
+                  <div
+                    key={item.name}
+                    className="bg-white p-6 rounded-2xl border-2 border-[#ffe5e5] hover:border-[#c84a4a] transition-all hover:shadow-lg hover:scale-105"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl text-[#8b4545] font-semibold">{item.name}</h3>
+                      <span className="text-lg text-[#c84a4a] font-bold">{item.price}</span>
+                    </div>
+                    <p className="text-[#8b4545] text-sm">{item.description}</p>
+                  </div>
                 ))}
               </div>
-            </div>
-            <div>
-              <label className="ea-label">Party Size</label>
-              <div style={{ position: "relative" }}>
-                <Users size={15} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", color: "rgba(255,255,255,0.3)", pointerEvents: "none" }} />
-                <select value={reservation.guests} onChange={(e) => update("guests", Number(e.target.value))}
-                  className="ea-input" style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem", appearance: "none", cursor: "pointer" }}>
-                  {PARTY_SIZES.map((n) => <option key={n} value={n} style={{ background: "#1a1612" }}>{n} {n === 1 ? "Guest" : "Guests"}</option>)}
-                </select>
-                <ChevronDown size={14} style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", color: "rgba(255,255,255,0.3)", pointerEvents: "none" }} />
-              </div>
-            </div>
-            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.8rem" }}>For parties of 9 or more, please call (718) 555-0192.</p>
-            <button onClick={() => setStep(2)} disabled={!reservation.date || !reservation.time}
-              className="btn-gold" style={{ width: "100%", padding: "1rem", opacity: (!reservation.date || !reservation.time) ? 0.4 : 1, cursor: (!reservation.date || !reservation.time) ? "not-allowed" : "pointer" }}>
-              Continue
-            </button>
-          </div>
-        )}
+            </motion.section>
+          ))}
+        </div>
 
-        {/* Step 2 */}
-        {step === 2 && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "1.8rem", color: "var(--fg)", marginBottom: "0.5rem" }}>Your details.</h2>
-            {[
-              { id: "name", label: "Full Name", type: "text", placeholder: "Jane Smith" },
-              { id: "email", label: "Email Address", type: "email", placeholder: "jane@example.com" },
-              { id: "phone", label: "Phone Number", type: "tel", placeholder: "(718) 555-0000" },
-            ].map(({ id, label, type, placeholder }) => (
-              <div key={id}>
-                <label htmlFor={id} className="ea-label">{label}</label>
-                <input id={id} type={type} placeholder={placeholder} value={(reservation as any)[id]}
-                  onChange={(e) => update(id, e.target.value)} className="ea-input" required />
-              </div>
-            ))}
-            <div>
-              <label htmlFor="notes" className="ea-label">Special Requests (optional)</label>
-              <textarea id="notes" rows={3} placeholder="Allergies, celebrations, seating preferences…"
-                value={reservation.notes} onChange={(e) => update("notes", e.target.value)}
-                className="ea-input" style={{ resize: "none" }} />
-            </div>
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <button onClick={() => setStep(1)} className="btn-outline" style={{ flex: 1, padding: "1rem", textAlign: "center" }}>Back</button>
-              <button onClick={() => setStep(3)} disabled={!reservation.name || !reservation.email}
-                className="btn-gold" style={{ flex: 1, padding: "1rem", opacity: (!reservation.name || !reservation.email) ? 0.4 : 1 }}>
-                Review
-              </button>
-            </div>
+        {/* Order Info */}
+        <motion.div
+          className="mt-12 bg-gradient-to-br from-[#ffe5e5] to-[#ffd1d1] rounded-3xl p-8 text-center border-2 border-[#c84a4a] shadow-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <ShoppingCart className="inline-block text-[#c84a4a] mb-4" size={48} />
+          <h3 className="text-3xl mb-4 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>
+            How to Order
+          </h3>
+          <div className="max-w-3xl mx-auto space-y-3 text-[#8b4545] text-lg">
+            <p>☎️ <strong>Call ahead:</strong> 210-999-51221</p>
+            <p>🏠 <strong>Visit us:</strong> 647 Cupples Rd, San Antonio, TX 78237</p>
+            <p>⏰ <strong>Hours:</strong> Mon-Thu 8am-3pm, Fri 8am-2pm, Sat 9am-3pm, Sun Closed</p>
+            <p className="italic pt-4">"Taste and see that the Lord is good" - Psalm 34:8</p>
           </div>
-        )}
-
-        {/* Step 3 */}
-        {step === 3 && !confirmed && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "1.8rem", color: "var(--fg)", marginBottom: "0.5rem" }}>Confirm your reservation.</h2>
-            <div style={{ border: "1px solid rgba(212,163,84,0.2)", padding: "2rem", display: "flex", flexDirection: "column", gap: "1rem", background: "rgba(255,255,255,0.025)" }}>
-              {[
-                { icon: Calendar, label: "Date", value: reservation.date },
-                { icon: Clock, label: "Time", value: reservation.time },
-                { icon: Users, label: "Guests", value: `${reservation.guests} ${reservation.guests === 1 ? "guest" : "guests"}` },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                  <Icon size={15} style={{ color: "var(--gold)" }} />
-                  <span style={{ fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", width: 60 }}>{label}</span>
-                  <span style={{ color: "var(--fg)", fontSize: "0.9rem" }}>{value}</span>
-                </div>
-              ))}
-              <div style={{ borderTop: "1px solid rgba(212,163,84,0.1)", paddingTop: "1rem", marginTop: "0.5rem" }}>
-                <p style={{ color: "var(--fg)", fontSize: "0.88rem", marginBottom: "0.3rem" }}>{reservation.name} · {reservation.email}</p>
-                {reservation.notes && <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.82rem" }}>Note: {reservation.notes}</p>}
-              </div>
-            </div>
-            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.8rem" }}>
-              A confirmation email will be sent to <span style={{ color: "var(--fg)" }}>{reservation.email}</span>. We hold reservations for 15 minutes past the booked time.
-            </p>
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <button onClick={() => setStep(2)} className="btn-outline" style={{ flex: 1, padding: "1rem" }}>Back</button>
-              <button className="btn-gold" style={{ flex: 1, padding: "1rem" }} onClick={() => setConfirmed(true)}>
-                Confirm Reservation
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Confirmed */}
-        {confirmed && (
-          <div style={{ textAlign: "center", padding: "4rem 2rem", border: "1px solid rgba(212,163,84,0.2)" }}>
-            <div style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>🔥</div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "2rem", color: "var(--fg)", marginBottom: "1rem" }}>You're confirmed.</h2>
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9rem", lineHeight: 1.7 }}>
-              We look forward to welcoming you, {reservation.name}.<br />A confirmation has been sent to {reservation.email}.
-            </p>
-            <div className="divider" style={{ margin: "2rem auto" }} />
-            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.8rem" }}>
-              {reservation.date} at {reservation.time} · {reservation.guests} {reservation.guests === 1 ? "guest" : "guests"}
-            </p>
-          </div>
-        )}
+        </motion.div>
       </div>
-      <style>{`@media (max-width: 600px) { .hidden-mobile { display: none !important; } }`}</style>
     </div>
   );
 }

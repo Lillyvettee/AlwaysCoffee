@@ -1,105 +1,253 @@
 import { Link } from "react-router";
+import { Coffee, Heart, MapPin } from "lucide-react";
+import { motion } from "motion/react";
 
-const HERO_BG = `linear-gradient(to bottom, rgba(12,10,8,0.3) 0%, rgba(12,10,8,0.65) 55%, rgba(12,10,8,1) 100%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80') center/cover no-repeat`;
+function HouseImage({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="300" rx="16" fill="#ffe5e5"/>
+      <rect x="60" y="145" width="280" height="135" rx="4" fill="#f5d7d7" stroke="#c84a4a" strokeWidth="2.5"/>
+      <polygon points="45,148 200,55 355,148" fill="#c84a4a"/>
+      <rect x="155" y="185" width="90" height="95" rx="4" fill="#c84a4a" opacity="0.25"/>
+      <rect x="168" y="200" width="28" height="28" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
+      <rect x="204" y="200" width="28" height="28" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
+      <circle cx="199" cy="252" r="3.5" fill="#c84a4a"/>
+      <rect x="75" y="170" width="55" height="42" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
+      <rect x="83" y="178" width="39" height="26" rx="2" fill="#ffe5e5"/>
+      <rect x="270" y="170" width="55" height="42" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
+      <rect x="278" y="178" width="39" height="26" rx="2" fill="#ffe5e5"/>
+      <text x="200" y="100" textAnchor="middle" fill="white" fontSize="13" fontFamily="serif" fontStyle="italic">Always Coffee</text>
+    </svg>
+  );
+}
 
-const DISHES = [
-  { name: "Dry-Aged Ribeye", desc: "45-day aged, coal-kissed, bone marrow butter, crispy shallots", price: "$68" },
-  { name: "Ember Octopus", desc: "Charred tentacles, nduja, smoked paprika aioli, pickled celery", price: "$34" },
-  { name: "Wood-Fired Truffle Pizza", desc: "Black truffle, fontina, crispy sage, farm egg, aged Parmesan", price: "$29" },
-];
+function TrailerImage({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="260" rx="16" fill="#fff0f0"/>
+      <rect x="20" y="75" width="360" height="140" rx="12" fill="#f5d7d7" stroke="#c84a4a" strokeWidth="3"/>
+      <rect x="20" y="75" width="360" height="42" rx="12" fill="#c84a4a"/>
+      <text x="200" y="103" textAnchor="middle" fill="white" fontSize="17" fontFamily="serif" fontStyle="italic">Always Coffee House</text>
+      <rect x="50" y="137" width="68" height="58" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
+      <rect x="59" y="146" width="50" height="34" rx="3" fill="#ffe5e5"/>
+      <rect x="162" y="132" width="76" height="63" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
+      <rect x="171" y="141" width="58" height="38" rx="3" fill="#ffe5e5"/>
+      <rect x="282" y="137" width="68" height="58" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
+      <circle cx="78" cy="220" r="20" fill="#8b4545" stroke="#c84a4a" strokeWidth="2"/>
+      <circle cx="78" cy="220" r="9" fill="#c84a4a"/>
+      <circle cx="312" cy="220" r="20" fill="#8b4545" stroke="#c84a4a" strokeWidth="2"/>
+      <circle cx="312" cy="220" r="9" fill="#c84a4a"/>
+    </svg>
+  );
+}
 
-const FEATURES = [
-  { icon: "🔥", title: "Live Fire Cooking", desc: "Coal pits, wood-burning ovens, and custom grills. Every dish is touched by open flame." },
-  { icon: "🌿", title: "Hyper-Seasonal", desc: "Our menu shifts weekly with heritage meats, foraged finds, and produce from within 150 miles." },
-  { icon: "🍷", title: "Natural Wine Program", desc: "200+ labels curated by our sommelier — small-production, biodynamic, and impossible to predict." },
-];
+function LogoImage({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="80" r="78" fill="#ffe5e5" stroke="#c84a4a" strokeWidth="3"/>
+      <path d="M80 80 C80 80 40 50 25 60 C15 68 30 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
+      <path d="M80 80 C80 80 120 50 135 60 C145 68 130 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
+      <path d="M80 80 C80 80 40 110 25 100 C15 92 30 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
+      <path d="M80 80 C80 80 120 110 135 100 C145 92 130 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
+      <circle cx="80" cy="80" r="12" fill="#e86060"/>
+      <text x="80" y="130" textAnchor="middle" fill="#c84a4a" fontSize="11" fontFamily="serif" fontStyle="italic">Always Coffee</text>
+    </svg>
+  );
+}
 
 export function Home() {
   return (
     <div>
-      {/* Hero */}
-      <section style={{ height: "100vh", background: HERO_BG, display: "flex", alignItems: "flex-end", padding: "0 2rem 8rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
-          <p className="section-label fade-up">Brooklyn, New York — Est. 2019</p>
-          <h1 className="fade-up delay-1" style={{ fontFamily: "var(--display)", fontSize: "clamp(3rem, 9vw, 7rem)", color: "var(--fg)", lineHeight: 1, marginBottom: "1.5rem" }}>
-            Where Fire<br /><em style={{ color: "var(--gold)" }}>Meets</em> Flavour
-          </h1>
-          <p className="fade-up delay-2" style={{ color: "rgba(255,255,255,0.55)", fontSize: "1.05rem", maxWidth: 460, lineHeight: 1.75, marginBottom: "2.5rem" }}>
-            An intimate wood-fire restaurant in Carroll Gardens. Open Wednesday through Sunday — reservations essential.
-          </p>
-          <div className="fade-up delay-3" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <Link to="/order" className="btn-gold">Reserve a Table</Link>
-            <Link to="/menu" className="btn-outline">View Menu</Link>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-[#ffe5e5] via-[#f5d7d7] to-[#ffd1d1] py-20 overflow-hidden">
+        <motion.div
+          className="absolute top-10 right-10 opacity-20"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <Coffee size={60} className="text-[#c84a4a]" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-10 left-10 opacity-20"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        >
+          <Heart size={50} className="text-[#ff6b9d]" />
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl md:text-6xl mb-6 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>
+                Welcome to Always Coffee House
+              </h1>
+              <p className="text-2xl text-[#8b4545] mb-4 italic">
+                "I am with you, always" - Matthew 28:20
+              </p>
+              <Link
+                to="/menu"
+                className="inline-block bg-[#c84a4a] text-white px-8 py-4 rounded-full hover:bg-[#a83d3d] transition-all hover:scale-105 shadow-lg"
+              >
+                View Our Menu ☕
+              </Link>
+            </motion.div>
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-full max-w-md"
+              >
+                <HouseImage className="w-full rounded-3xl shadow-2xl border-4 border-white" />
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section style={{ background: "rgba(212,163,84,0.05)", borderTop: "1px solid rgba(212,163,84,0.15)", borderBottom: "1px solid rgba(212,163,84,0.15)", padding: "4rem 2rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "3rem" }}>
-          {FEATURES.map((f) => (
-            <div key={f.title} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{f.icon}</div>
-              <h3 style={{ fontFamily: "var(--display)", fontSize: "1.2rem", color: "var(--gold)", marginBottom: "0.7rem" }}>{f.title}</h3>
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.87rem", lineHeight: 1.75 }}>{f.desc}</p>
-            </div>
-          ))}
+      {/* Features Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              className="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-[#f5d7d7] hover:shadow-2xl transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -8 }}
+            >
+              <motion.div
+                className="inline-block p-4 bg-gradient-to-br from-[#ffe5e5] to-[#f5d7d7] rounded-full mb-4"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Coffee className="text-[#c84a4a]" size={32} />
+              </motion.div>
+              <h3 className="text-xl mb-3 text-[#8b4545]">Premium Coffee</h3>
+              <p className="text-[#8b4545]">
+                Expertly crafted beverages made with the finest beans and lots of love.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-[#f5d7d7] hover:shadow-2xl transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -8 }}
+            >
+              <motion.div
+                className="inline-block p-4 bg-gradient-to-br from-[#ffe5e5] to-[#f5d7d7] rounded-full mb-4"
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Heart className="text-[#c84a4a]" size={32} />
+              </motion.div>
+              <h3 className="text-xl mb-3 text-[#8b4545]">Made with Love</h3>
+              <p className="text-[#8b4545]">
+                Every cup is prepared with care and attention to detail.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-[#f5d7d7] hover:shadow-2xl transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -8 }}
+            >
+              <motion.div
+                className="inline-block p-4 bg-gradient-to-br from-[#ffe5e5] to-[#f5d7d7] rounded-full mb-4"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <MapPin className="text-[#c84a4a]" size={32} />
+              </motion.div>
+              <h3 className="text-xl mb-3 text-[#8b4545]">Local Favorite</h3>
+              <p className="text-[#8b4545]">
+                Proudly serving the San Antonio community with warmth and hospitality.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Signature Dishes */}
-      <section style={{ padding: "6rem 2rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-            <p className="section-label">From the Fire</p>
-            <h2 className="section-title">Tonight's Signatures</h2>
-            <div className="divider" style={{ margin: "1.2rem auto" }} />
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginBottom: "3rem" }}>
-            {DISHES.map((d) => (
-              <div key={d.name} className="ea-card" style={{ position: "relative" }}>
-                <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem", fontFamily: "var(--display)", color: "var(--gold)", fontSize: "1.1rem" }}>{d.price}</div>
-                <h3 style={{ fontFamily: "var(--display)", fontSize: "1.25rem", marginBottom: "0.6rem", paddingRight: "3.5rem" }}>{d.name}</h3>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.83rem", lineHeight: 1.7 }}>{d.desc}</p>
+      {/* Trailer Showcase */}
+      <section className="py-16 bg-gradient-to-br from-[#ffe5e5] via-[#f5d7d7] to-[#ffd1d1] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <TrailerImage className="w-full h-auto rounded-3xl shadow-2xl border-4 border-white" />
+              </motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl mb-6 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>Where It All Began</h2>
+              <p className="text-xl text-[#8b4545] mb-6">
+                This charming vintage trailer was our very first shop, where the Always Coffee story started. It represents our humble beginnings and the passion that drove us to share great coffee with our community.
+              </p>
+              <div className="mt-8 bg-white/60 backdrop-blur-sm p-6 rounded-3xl border-2 border-white shadow-lg">
+                <h3 className="text-2xl mb-4 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>Our Mission</h3>
+                <p className="text-lg text-[#8b4545] leading-relaxed mb-4">
+                  At Always Coffee House, our mission is to create a welcoming, faith-filled space where every customer feels like family. We're committed to serving exceptional, handcrafted coffee while building meaningful connections within our San Antonio community.
+                </p>
+                <p className="text-lg text-[#8b4545] leading-relaxed">
+                  Rooted in Christian values, we believe in spreading love, joy, and kindness with every cup. From our first coffee trailer to today, we strive to be a light in the community—one coffee at a time.
+                </p>
               </div>
-            ))}
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <Link to="/menu" className="btn-outline">Explore Full Menu</Link>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Story strip */}
-      <section style={{ padding: "6rem 2rem", background: "rgba(255,255,255,0.015)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
-          <div>
-            <p className="section-label">Our Story</p>
-            <h2 className="section-title">Fire is Our Medium</h2>
-            <div className="divider" />
-            <p style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.9, marginBottom: "1.2rem", fontSize: "0.93rem" }}>
-              Born from a decade in Michelin-starred kitchens and a stubborn love for ancient cooking, Ember & Ash opened with a single mission: let fire do the talking.
+      {/* CTA Section */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl mb-6 text-[#c84a4a]" style={{ fontFamily: 'var(--font-cursive)' }}>Visit Us Today</h2>
+            <p className="text-xl text-[#8b4545] mb-8">
+              We're located at 647 Cupples Rd in San Antonio. Come experience the Always difference!
             </p>
-            <p style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.9, marginBottom: "2rem", fontSize: "0.93rem" }}>
-              Chef Mara Delacroix leads a team obsessed with craft — from the sourcing to the seasoning to the smoke rising from our coal pit each evening.
-            </p>
-            <Link to="/about" className="btn-outline">Our Story</Link>
-          </div>
-          <div style={{ position: "relative" }}>
-            <div style={{ width: "100%", aspectRatio: "4/5", background: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80') center/cover` }} />
-            <div style={{ position: "absolute", bottom: -20, left: -20, width: 160, height: 160, border: "1px solid rgba(212,163,84,0.25)", zIndex: -1 }} />
-          </div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/contact"
+                className="inline-block bg-[#c84a4a] text-white px-8 py-4 rounded-full hover:bg-[#a83d3d] transition-all shadow-lg"
+              >
+                Get Directions 💕
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section style={{ padding: "7rem 2rem", textAlign: "center", background: `linear-gradient(rgba(12,10,8,0.75), rgba(12,10,8,0.75)), url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1400&q=80') center/cover` }}>
-        <p className="section-label">Reservations</p>
-        <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--fg)", marginBottom: "1.5rem", lineHeight: 1.2 }}>Join Us at the Table</h2>
-        <p style={{ color: "rgba(255,255,255,0.45)", marginBottom: "2.5rem", fontSize: "0.93rem", maxWidth: 420, margin: "0 auto 2.5rem" }}>
-          Tables are limited. Reserve in advance to secure your evening.
-        </p>
-        <Link to="/order" className="btn-gold">Make a Reservation</Link>
       </section>
     </div>
   );
