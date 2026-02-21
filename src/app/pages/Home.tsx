@@ -173,12 +173,12 @@ export function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-4xl mb-6 text-[#c84a4a]" style={{ fontFamily: "'Pacifico', cursive" }}>Where It All Began</h2>
+              <h2 className="text-4xl mb-6 text-[#c84a4a]" style={{ fontFamily: 'Dancing Script', cursive }}>Where It All Began</h2>
               <p className="text-xl text-[#8b4545] mb-6">
                 This charming vintage trailer was our very first shop, where the Always Coffee story started. It represents our humble beginnings and the passion that drove us to share great coffee with our community.
               </p>
               <div className="mt-8 bg-white/60 backdrop-blur-sm p-6 rounded-3xl border-2 border-white shadow-lg">
-                <h3 className="text-2xl mb-4 text-[#c84a4a]" style={{ fontFamily: "'Pacifico', cursive" }}>Our Mission</h3>
+                <h3 className="text-2xl mb-4 text-[#c84a4a]" style={{ fontFamily: 'Dancing Script', cursive }}>Our Mission</h3>
                 <p className="text-lg text-[#8b4545] leading-relaxed mb-4">
                   At Always Coffee House, our mission is to create a welcoming, faith-filled space where every customer feels like family. We're committed to serving exceptional, handcrafted coffee while building meaningful connections within our San Antonio community.
                 </p>
