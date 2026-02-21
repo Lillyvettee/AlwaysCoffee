@@ -1,8 +1,11 @@
 import { ShoppingBag, Heart } from "lucide-react";
 import { motion } from "motion/react";
 
-
-
+function BowImage({ className }: { className?: string }) {
+  return (
+    <img src="/assets/bow.png" className={className} alt="Always Coffee Bow" />
+  );
+}
 function LogoImage({ className }: { className?: string }) {
   return (
     <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
