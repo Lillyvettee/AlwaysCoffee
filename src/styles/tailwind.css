@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Delius+Swash+Caps&display=swap');
+
+@import 'tw-animate-css';
 @import 'tailwindcss' source(none);
 @source '../**/*.{js,ts,jsx,tsx}';
 
-@import 'tw-animate-css';
+@layer base {
+  body {
+    font-family: 'Delius Swash Caps', cursive !important;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cedarville Cursive', cursive !important;
+  }
+}
+

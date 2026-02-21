@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --font-cursive: "'Delius Swash Caps', cursive";
+  --font-cursive: 'Cedarville Cursive', cursive;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -119,10 +119,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: inherit;
   }
 
   body {
@@ -130,6 +130,9 @@
     font-family: 'Delius Swash Caps', cursive;
   }
 
+  h1, h2, h3 {
+    font-family: 'Cedarville Cursive', cursive;
+  }
   /**
   * Default typography styles for HTML elements (h1-h4, p, label, button, input).
   * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.

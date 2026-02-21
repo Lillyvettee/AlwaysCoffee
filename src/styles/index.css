@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Lato:wght@300;400;700&display=swap');
 
 :root {
   --cream: #f5f0e8;
@@ -8,7 +7,7 @@
   --gold: #d4a853;
   --ash: #8c8070;
   --smoke: #e8e0d0;
-  --font-cursive: 'Delius Swash Caps', cursive;
+  --font-cursive: 'Pacifico', cursive;
 }
 
 * {
@@ -22,13 +21,9 @@ html {
 body {
   background: var(--cream);
   color: var(--charcoal);
-  font-family: "'Delius Swash Caps', cursive";
-  font-weight: 300;
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
   overflow-x: hidden;
-}
-
-.font-display {
-  fontFamily: "'Delius Swash Caps', cursive";
 }
 
 ::-webkit-scrollbar { width: 6px; }
