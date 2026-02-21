@@ -27,7 +27,7 @@ body {
 }
 
 .font-display {
-  --font-cursive: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
 }
 
 ::-webkit-scrollbar { width: 6px; }
