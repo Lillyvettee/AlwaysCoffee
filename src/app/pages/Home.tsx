@@ -20,6 +20,11 @@ function LogoImage({ className }: { className?: string }) {
     <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
   );
 }
+function BowImage({ className }: { className?: string }) {
+  return (
+    <img src="/assets/bow.png" className={className} alt="Always Coffee Bow" />
+  );
+}
 
 export function Home() {
   return (
