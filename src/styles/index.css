@@ -22,13 +22,13 @@ html {
 body {
   background: var(--cream);
   color: var(--charcoal);
-  font-family: 'Delius Swash Caps', cursive;
+  font-family: "'Delius Swash Caps', cursive";
   font-weight: 300;
   overflow-x: hidden;
 }
 
 .font-display {
-  font-family: 'Delius Swash Caps', cursive;
+  fontFamily: "'Delius Swash Caps', cursive";
 }
 
 ::-webkit-scrollbar { width: 6px; }
