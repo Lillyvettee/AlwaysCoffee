@@ -8,8 +8,7 @@
   --gold: #d4a853;
   --ash: #8c8070;
   --smoke: #e8e0d0;
-  --font-cursive: 'Cedarville Cursive' cursive;
-}
+  --font-cursive: 'Cedarville Cursive', cursive;}
 
 * {
   box-sizing: border-box;
