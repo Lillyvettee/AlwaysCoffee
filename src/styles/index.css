@@ -70,3 +70,6 @@ body {
 .ember-glow {
   text-shadow: 0 0 40px rgba(200, 75, 17, 0.3);
 }
+[style*="Pacifico"] {
+  font-family: 'Pacifico', cursive !important;
+}
