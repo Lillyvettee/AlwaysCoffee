@@ -1,12 +1,16 @@
 import { Link, useLocation } from "react-router";
-import logoImg from "figma:asset/6ad62248d063aa580530db6d2c51dcbf99359b8e.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+
+function LogoImage({ className }: { className?: string }) {
+  return (
+    <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
+  );
+}
 
 export function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/menu", label: "Menu" },
@@ -15,23 +19,20 @@ export function Header() {
     { path: "/order", label: "Order Now", special: true },
     { path: "/merch", label: "Merch", special: true },
   ];
-
   const isActive = (path: string) => {
     if (path === "/") {
       return location.pathname === "/";
     }
     return location.pathname.startsWith(path);
   };
-
   return (
     <header className="bg-gradient-to-r from-[#ffe5e5] via-[#f5d7d7] to-[#ffd1d1] border-b-4 border-[#c84a4a] sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center hover:scale-105 transition-transform">
-            <img src={logoImg} alt="Always Coffee" className="h-16 w-auto" />
+            <LogoImage className="h-16 w-auto" />
           </Link>
-
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             {navLinks.map((link) => (
@@ -50,7 +51,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -59,7 +59,6 @@ export function Header() {
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 space-y-2 bg-white/60 backdrop-blur-sm rounded-2xl p-4 mb-2">
