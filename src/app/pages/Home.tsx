@@ -49,7 +49,7 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-6xl mb-6 text-[#c84a4a]" style={{ fontFamily: "'Dancing Script', cursive" }}>
+              <h1 className="text-5xl md:text-6xl mb-6 text-[#c84a4a]" style={{ fontFamily: "'Great Vibes', cursive" }}>
                 Welcome to Always Coffee House
               </h1>
               <p className="text-2xl text-[#8b4545] mb-4 italic">
