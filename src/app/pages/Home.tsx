@@ -20,9 +20,6 @@ function LogoImage({ className }: { className?: string }) {
     <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
   );
 }
-import { Link } from "react-router";
-import { Coffee, Heart, MapPin } from "lucide-react";
-import { motion } from "motion/react";
 
 export function Home() {
   return (
