@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Lato:wght@300;400;700&display=swap');
-
 
 :root {
   --cream: #f5f0e8;
@@ -11,7 +9,6 @@
   --ash: #8c8070;
   --smoke: #e8e0d0;
   --font-cursive: 'Delius Swash Caps', cursive;
-
 }
 
 * {
@@ -31,7 +28,7 @@ body {
 }
 
 .font-display {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Delius Swash Caps', cursive;
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -74,5 +71,3 @@ body {
 .ember-glow {
   text-shadow: 0 0 40px rgba(200, 75, 17, 0.3);
 }
-
-
