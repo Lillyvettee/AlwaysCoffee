@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 
 function HouseImage({ className }: { className?: string }) {
   return (
+    <img src="/assets/shop.png" className={className} alt="Always Coffee House" /> )
     <svg className={className} viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="400" height="300" rx="16" fill="#ffe5e5"/>
       <rect x="60" y="145" width="280" height="135" rx="4" fill="#f5d7d7" stroke="#c84a4a" strokeWidth="2.5"/>
