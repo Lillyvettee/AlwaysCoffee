@@ -15,7 +15,11 @@ function HouseImage({ className }: { className?: string }) {
     <img src="/assets/shop.png" className={className} alt="Always Coffee House" />
   );
 }
-
+function BowImage({ className }: { className?: string }) {
+  return (
+    <img src="/assets/bow.png" className={className} alt="Always Coffee Bow" />
+  );
+}
 export function About() {
   return (
     <div className="py-12">
