@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --font-cursive: 'Cedarville Cursive', cursive;
+  --font-cursive: "'Delius Swash Caps', cursive";
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
