@@ -1,3 +1,7 @@
+import { Link } from "react-router";
+import { Coffee, Heart, MapPin } from "lucide-react";
+import { motion } from "motion/react";
+
 
 function HouseImage({ className }: { className?: string }) {
   return (
