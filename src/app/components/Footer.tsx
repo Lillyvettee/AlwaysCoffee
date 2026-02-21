@@ -1,5 +1,10 @@
-import { MapPin, Phone, Clock } from "lucide-react";
-import bowImg from "figma:asset/85c2f5bc9a39cd77c53ba594941f7967ec94ab0d.png";
+import { MapPin, Phone } from "lucide-react";
+
+function BowImage({ className }: { className?: string }) {
+  return (
+    <img src="/assets/bow.png" className={className} alt="Always Coffee" />
+  );
+}
 
 export function Footer() {
   return (
@@ -17,12 +22,10 @@ export function Footer() {
               San Antonio, TX 78237
             </p>
           </div>
-
           {/* Logo Center */}
           <div className="flex justify-center items-center">
-            <img src={bowImg} alt="Always Coffee" className="h-20 w-auto hover:scale-110 transition-transform" />
+            <BowImage className="h-20 w-auto hover:scale-110 transition-transform" />
           </div>
-
           {/* Contact */}
           <div className="flex flex-col items-center md:items-end">
             <div className="flex items-center gap-2 mb-3 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -34,7 +37,6 @@ export function Footer() {
             </p>
           </div>
         </div>
-
         <div className="mt-8 pt-8 border-t-2 border-[#c84a4a]/30 text-center text-[#8b4545]">
           <p>Made with 💕 &copy; 2026 Always Coffee House. All rights reserved.</p>
         </div>
