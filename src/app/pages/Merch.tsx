@@ -1,29 +1,11 @@
 import { ShoppingBag, Heart } from "lucide-react";
 import { motion } from "motion/react";
 
-function BowImage({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M60 40 C60 40 20 10 5 20 C-5 28 10 50 60 40Z" fill="#c84a4a" opacity="0.85"/>
-      <path d="M60 40 C60 40 100 10 115 20 C125 28 110 50 60 40Z" fill="#c84a4a" opacity="0.85"/>
-      <path d="M60 40 C60 40 20 70 5 60 C-5 52 10 30 60 40Z" fill="#a83d3d" opacity="0.85"/>
-      <path d="M60 40 C60 40 100 70 115 60 C125 52 110 30 60 40Z" fill="#a83d3d" opacity="0.85"/>
-      <circle cx="60" cy="40" r="8" fill="#e86060"/>
-    </svg>
-  );
-}
+
 
 function LogoImage({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="80" cy="80" r="78" fill="#ffe5e5" stroke="#c84a4a" strokeWidth="3"/>
-      <path d="M80 80 C80 80 40 50 25 60 C15 68 30 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
-      <path d="M80 80 C80 80 120 50 135 60 C145 68 130 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
-      <path d="M80 80 C80 80 40 110 25 100 C15 92 30 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
-      <path d="M80 80 C80 80 120 110 135 100 C145 92 130 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
-      <circle cx="80" cy="80" r="12" fill="#e86060"/>
-      <text x="80" y="130" textAnchor="middle" fill="#c84a4a" fontSize="11" fontFamily="serif" fontStyle="italic">Always Coffee</text>
-    </svg>
+    <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
   );
 }
 
