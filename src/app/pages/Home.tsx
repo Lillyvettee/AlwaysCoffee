@@ -2,57 +2,22 @@ import { Link } from "react-router";
 import { Coffee, Heart, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 
+
 function HouseImage({ className }: { className?: string }) {
   return (
-    <img src="/assets/shop.png" className={className} alt="Always Coffee House" /> )
-    <svg className={className} viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="300" rx="16" fill="#ffe5e5"/>
-      <rect x="60" y="145" width="280" height="135" rx="4" fill="#f5d7d7" stroke="#c84a4a" strokeWidth="2.5"/>
-      <polygon points="45,148 200,55 355,148" fill="#c84a4a"/>
-      <rect x="155" y="185" width="90" height="95" rx="4" fill="#c84a4a" opacity="0.25"/>
-      <rect x="168" y="200" width="28" height="28" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
-      <rect x="204" y="200" width="28" height="28" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
-      <circle cx="199" cy="252" r="3.5" fill="#c84a4a"/>
-      <rect x="75" y="170" width="55" height="42" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
-      <rect x="83" y="178" width="39" height="26" rx="2" fill="#ffe5e5"/>
-      <rect x="270" y="170" width="55" height="42" rx="3" fill="white" stroke="#c84a4a" strokeWidth="1.5"/>
-      <rect x="278" y="178" width="39" height="26" rx="2" fill="#ffe5e5"/>
-      <text x="200" y="100" textAnchor="middle" fill="white" fontSize="13" fontFamily="serif" fontStyle="italic">Always Coffee</text>
-    </svg>
+    <img src="/assets/shop.png" className={className} alt="Always Coffee House" />
   );
 }
 
 function TrailerImage({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="260" rx="16" fill="#fff0f0"/>
-      <rect x="20" y="75" width="360" height="140" rx="12" fill="#f5d7d7" stroke="#c84a4a" strokeWidth="3"/>
-      <rect x="20" y="75" width="360" height="42" rx="12" fill="#c84a4a"/>
-      <text x="200" y="103" textAnchor="middle" fill="white" fontSize="17" fontFamily="serif" fontStyle="italic">Always Coffee House</text>
-      <rect x="50" y="137" width="68" height="58" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
-      <rect x="59" y="146" width="50" height="34" rx="3" fill="#ffe5e5"/>
-      <rect x="162" y="132" width="76" height="63" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
-      <rect x="171" y="141" width="58" height="38" rx="3" fill="#ffe5e5"/>
-      <rect x="282" y="137" width="68" height="58" rx="6" fill="white" stroke="#c84a4a" strokeWidth="2"/>
-      <circle cx="78" cy="220" r="20" fill="#8b4545" stroke="#c84a4a" strokeWidth="2"/>
-      <circle cx="78" cy="220" r="9" fill="#c84a4a"/>
-      <circle cx="312" cy="220" r="20" fill="#8b4545" stroke="#c84a4a" strokeWidth="2"/>
-      <circle cx="312" cy="220" r="9" fill="#c84a4a"/>
-    </svg>
+    <img src="/assets/cart.png" className={className} alt="Always Coffee Trailer" />
   );
 }
 
 function LogoImage({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="80" cy="80" r="78" fill="#ffe5e5" stroke="#c84a4a" strokeWidth="3"/>
-      <path d="M80 80 C80 80 40 50 25 60 C15 68 30 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
-      <path d="M80 80 C80 80 120 50 135 60 C145 68 130 90 80 80Z" fill="#c84a4a" opacity="0.9"/>
-      <path d="M80 80 C80 80 40 110 25 100 C15 92 30 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
-      <path d="M80 80 C80 80 120 110 135 100 C145 92 130 70 80 80Z" fill="#a83d3d" opacity="0.9"/>
-      <circle cx="80" cy="80" r="12" fill="#e86060"/>
-      <text x="80" y="130" textAnchor="middle" fill="#c84a4a" fontSize="11" fontFamily="serif" fontStyle="italic">Always Coffee</text>
-    </svg>
+    <img src="/assets/logo.png" className={className} alt="Always Coffee Logo" />
   );
 }
 
