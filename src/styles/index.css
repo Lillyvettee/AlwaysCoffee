@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@300;400;700&display=swap');
 :root {
   --cream: #f5f0e8;
   --charcoal: #1a1510;
@@ -7,7 +7,7 @@
   --gold: #d4a853;
   --ash: #8c8070;
   --smoke: #e8e0d0;
-  --font-cursive: 'Pacifico', cursive;
+  --font-cursive: 'Dancing Script', cursive;
 }
 
 * {
@@ -21,7 +21,7 @@ html {
 body {
   background: var(--cream);
   color: var(--charcoal);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Dancing Script', cursive;
   font-weight: 300;
   overflow-x: hidden;
 }
@@ -70,6 +70,5 @@ body {
 .ember-glow {
   text-shadow: 0 0 40px rgba(200, 75, 17, 0.3);
 }
-[style*="Pacifico"] {
-  font-family: 'Pacifico', cursive !important;
-}
+
+
